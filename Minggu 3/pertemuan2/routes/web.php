@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Route::get('user','ManagementUserController@index');
-Route::get('user','ManagementUserController');
+Route::resource('user','ManagementUserController');
