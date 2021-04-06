@@ -17,9 +17,9 @@ class CreateMahasiswaTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->text('alamat');
+            $table->integer('jenis_kelamin')->unsigned()->default(1);
             $table->integer('prodi')->unsigned()->default(1);
-            $table->integer('jk')->unsigned();
-            $table->bigInteger('no_hp')->nullable();
+            $table->string('no_hp', 15);
             $table->timestamps();
         });
     }
