@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Request;
 
 class LoginController extends Controller
 {
@@ -20,10 +19,8 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    
 
     use AuthenticatesUsers;
-    
 
     /**
      * Where to redirect users after login.
@@ -40,8 +37,8 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        
     }
+
     public function login(Request $request)
     {
         $this->validate($request, ['username' => 'required|string', 'password' => 'required|string|min:6' ]);
@@ -54,9 +51,8 @@ class LoginController extends Controller
         ];
 
         if (auth()->attempt($login)) {
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
-        return redirect()->route('login')->with(['error' => 'Email/Password Salah']);
+        return redirect()->route('login')->with(['error' => 'Email/Password Salah!']);
     }
 }
-
