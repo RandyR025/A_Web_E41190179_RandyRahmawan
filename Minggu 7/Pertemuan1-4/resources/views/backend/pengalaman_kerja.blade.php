@@ -8,7 +8,7 @@
                 <th class="icon-document"><i class="fa fa-file"></i> Jabatan</th>
                 <th class="icon-calender"><i class="fa fa-calendar"></i> Tanggal Masuk</th>
                 <th class="icon-calender"><i class="fa fa-calendar"></i> Tanggal Keluar</th>
-                <th class="icon-gear"><i class="fa fa-gear"></i> Tanggal Keluar</th>
+                <th class="icon-gear" colspan="2"><i class="fa fa-gear"></i> Opsi</th>
             </tr>
         </thead>
 
@@ -23,7 +23,7 @@
                 <form action="{{route('pengalaman_kerja.destroy', $pengalaman_kerja->id)}}" method="post">
                     @csrf
                     @method('delete')
-                <button class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda ingin menghapusnya ?')"><i class="fa fa-trash"></i> Hapus</button></td>
+                <button class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda ingin menghapusnya ?')"><i class="fa fa-trash"></i> Hapus</button>
                 </form>
             </tr>
             @endforeach
